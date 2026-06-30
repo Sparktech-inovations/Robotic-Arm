@@ -1,0 +1,25 @@
+| Servo      | ESP32 GPIO  | Servo Wire             |
+| ---------- | ----------- | ---------------------- |
+| Base       | GPIO 14     | Signal (Orange/Yellow) |
+| Shoulder   | GPIO 16     | Signal (Orange/Yellow) |
+| Elbow      | GPIO 17     | Signal (Orange/Yellow) |
+| Gripper    | GPIO 18     | Signal (Orange/Yellow) |
+| All Servos | External 5V | Red (VCC)              |
+| All Servos | Common GND  | Brown/Black (GND)      |
+
+## ⚠️ Important Connection Notes
+
+- Use an **external regulated 5V power supply (3A–5A recommended)** to power all servo motors.
+- **Do NOT power the servos directly from the ESP32's 5V pin**, as the board cannot supply enough current for multiple servos.
+- Connect the **GND (Ground)** of the external power supply to the **ESP32 GND**. A common ground is required for reliable servo control.
+- Connect only the **servo signal wires** to the ESP32 GPIO pins:
+  - GPIO 14 → Base Servo
+  - GPIO 16 → Shoulder Servo
+  - GPIO 17 → Elbow Servo
+  - GPIO 18 → Gripper Servo
+- Ensure the power supply can handle the total current required when multiple servos move simultaneously.
+- Keep power wires short and use adequately sized wires to reduce voltage drops.
+- Verify all wiring before powering the circuit to avoid damaging the ESP32 or servos.
+- If using high-torque servos (e.g., MG996R or MG995), consider using a **5V 5A** power supply.
+- Never connect a servo directly to the ESP32 without a shared ground connection.
+- Check servo movement limits in software to prevent mechanical stress or damage to the robot arm.
